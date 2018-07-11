@@ -30,11 +30,15 @@
 </head>
 <h3 style='color: cyan; text-align: center;'>Countdown</h3>
 <h1 id="timer" style = 'text-align: center; color: white;'></h1>
+<h1 id="studyoutput" style = 'text-align: center; color: white;'></h1>
 <p style='text-align: center'><img src='clockicon.png'></p>
 <script>
 var timerVar = setInterval(countTimer, 1000);
+var outputVar = document.getElementById("studyoutput");
 var totalSeconds = 0;
 var long = false;
+var message1 = "Time to Study!";
+var message2 = "Break Time!";
 function countTimer() {
    ++totalSeconds;
    var hour = Math.floor(totalSeconds /3600);
@@ -42,10 +46,14 @@ function countTimer() {
    var seconds = totalSeconds - (hour*3600 + minute*60);
    document.getElementById("timer").innerHTML = hour + ":" + minute + ":" + seconds;
     var target = 0;
-    if(!long)
+    if(!long) {
         target = 15;
-    else
+        outputVar.textContent = message1;   
+    }
+    else {
         target = 45;
+        outputVar.textContent = message2;
+    }
     if(totalSeconds >= target)
         {
             long = !long;
