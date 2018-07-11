@@ -50,11 +50,13 @@ function countTimer() {
     if(!long) {
         target = 15;
         outputVar.textContent = message1;   
+        audio.loop = false;
         audio.play()
     }
     else {
         target = 45;
         outputVar.textContent = message2;
+        audio.loop = false;
         audio.play()
     }
     if(totalSeconds >= target)
