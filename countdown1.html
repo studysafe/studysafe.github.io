@@ -1,0 +1,55 @@
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>StudySafe</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- script
+    ================================================== -->
+    <script src="js/modernizr.js"></script>
+    <script src="js/pace.min.js"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+</head>
+<h3 style='color: cyan; text-align: center;'>Countdown</h3>
+<h1 id="timer" style = 'text-align: center; color: white;'></h1>
+<p style='text-align: center'><img src='clockicon.png'></p>
+<script>
+var timerVar = setInterval(countTimer, 1000);
+var totalSeconds = 0;
+var long = false;
+function countTimer() {
+   ++totalSeconds;
+   var hour = Math.floor(totalSeconds /3600);
+   var minute = Math.floor((totalSeconds - hour*3600)/60);
+   var seconds = totalSeconds - (hour*3600 + minute*60);
+   document.getElementById("timer").innerHTML = hour + ":" + minute + ":" + seconds;
+    var target = 0;
+    if(!long)
+        target = 15;
+    else
+        target = 45;
+    if(totalSeconds >= target)
+        {
+            long = !long;
+            totalSeconds = 0;
+        }
+}
+</script>
