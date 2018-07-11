@@ -34,6 +34,7 @@
 <p style='text-align: center'><img src='clockicon.png'></p>
 <script>
 var timerVar = setInterval(countTimer, 1000);
+var audio = new Audio('alarm.mp3');
 var outputVar = document.getElementById("studyoutput");
 var totalSeconds = 0;
 var long = false;
@@ -49,10 +50,12 @@ function countTimer() {
     if(!long) {
         target = 15;
         outputVar.textContent = message1;   
+        audio.play()
     }
     else {
         target = 45;
         outputVar.textContent = message2;
+        audio.play()
     }
     if(totalSeconds >= target)
         {
